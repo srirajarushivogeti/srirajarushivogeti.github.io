@@ -205,3 +205,39 @@ collections:
       - { label: "Tautan Halaman / Page Link", name: href, widget: string, required: false,
           hint: "Opsional, mis: /warisan#sri-paduka" }
       - { label: "Urutan antar Saudara / Sibling Order", name: order, widget: number, value_type: int, default: 0 }
+
+  - name: acara
+    label: "Acara / Events"
+    label_singular: "Acara"
+    folder: src/content/acara
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: "{{titleEn}}"
+    summary: "{{titleId}} — {{whenId}}"
+    sortable_fields: ["order", "titleId"]
+    fields:
+      - { label: "Judul (Indonesia)", name: titleId, widget: string }
+      - { label: "Title (English)",   name: titleEn, widget: string }
+      - label: "Jenis / Category"
+        name: category
+        widget: select
+        default: upacara
+        options:
+          - { label: "Upacara Adat / Royal Ceremony", value: upacara }
+          - { label: "Festival", value: festival }
+          - { label: "Anugerah / Conferment", value: anugerah }
+          - { label: "Ziarah / Pilgrimage", value: ziarah }
+          - { label: "Lainnya / Other", value: lainnya }
+      - { label: "Acara Tahunan / Recurring", name: recurring, widget: boolean, default: false,
+          hint: "Aktif = tampil di Agenda Tahunan. Nonaktif = tampil di Riwayat Acara." }
+      - { label: "Waktu (Indonesia)", name: whenId, widget: string, hint: "Mis: Tahunan · Januari, atau 2022 · Bali" }
+      - { label: "When (English)",     name: whenEn, widget: string }
+      - { label: "Lokasi (Indonesia)", name: locationId, widget: string, required: false }
+      - { label: "Location (English)", name: locationEn, widget: string, required: false }
+      - { label: "Deskripsi (Indonesia)", name: descId, widget: text }
+      - { label: "Description (English)",  name: descEn, widget: text }
+      - { label: "Tampilkan Tombol RSVP / Show RSVP", name: rsvp, widget: boolean, default: false,
+          hint: "Aktif untuk acara mendatang agar pengunjung bisa konfirmasi kehadiran via WhatsApp." }
+      - { label: "Urutan Tampil", name: order, widget: number, value_type: int, default: 0 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mangkualaman.netlify.app/sitemap-index.xml
+Sitemap: https://srirajarushivogeti.github.io/sitemap-index.xml
